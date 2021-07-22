@@ -298,7 +298,7 @@ extension CaptureSessionManager: AVCapturePhotoCaptureDelegate {
     private func completeImageCapture(with imageData: Data) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             CaptureSession.current.isEditing = true
-            guard let image = UIImage(data: imageData) else {
+            guard var image = UIImage(data: imageData) else {
                 let error = ImageScannerControllerError.capture
                 DispatchQueue.main.async {
                     guard let strongSelf = self else {
