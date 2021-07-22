@@ -88,6 +88,9 @@ public final class ScannerViewController: UIViewController {
         super.viewWillAppear(animated)
         setNeedsStatusBarAppearanceUpdate()
         
+        // TODO 注意此处添加方向旋转支持：right横屏 edit by wanghao
+        videoPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation(rawValue: UIDevice.current.orientation.rawValue)!
+        
         CaptureSession.current.isEditing = false
         quadView.removeQuadrilateral()
         captureSessionManager?.start()
@@ -308,7 +311,9 @@ extension ScannerViewController: RectangleDetectionDelegateProtocol {
         let scaleTransform = CGAffineTransform.scaleTransform(forSize: portraitImageSize, aspectFillInSize: quadView.bounds.size)
         let scaledImageSize = imageSize.applying(scaleTransform)
         
-        let rotationTransform = CGAffineTransform(rotationAngle: CGFloat.pi / 2.0)
+        // TODO 注意此处添加方向旋转支持：right横屏 edit by wanghao
+        //  let rotationTransform = CGAffineTransform(rotationAngle: CGFloat.pi / 2.0)
+        let rotationTransform = CGAffineTransform(rotationAngle: 0)
 
         let imageBounds = CGRect(origin: .zero, size: scaledImageSize).applying(rotationTransform)
 
