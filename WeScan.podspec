@@ -1,8 +1,8 @@
 Pod::Spec.new do |spec|
   spec.name             = 'WeScan'
-  spec.version          = '1.8.1'
+  spec.version          = '1.8.2'
   spec.summary          = 'Document Scanning Made Easy for iOS'
-  spec.description      = 'WeScan makes it easy to add scanning functionalities to your iOS app! It\'s modelled after UIImagePickerController, which makes it a breeze to use.'
+  spec.description      = 'WeScan makes it easy to add scanning functionalities to your iOS app! It\'s modelled after UIImagePickerController, which makes it a breeze to use.基于WeScan修改，强制使用横屏right拍摄、剪裁、预览'
 
   spec.homepage         = 'https://github.com/WeTransfer/WeScan'
   spec.license          = { :type => 'MIT', :file => 'LICENSE' }
