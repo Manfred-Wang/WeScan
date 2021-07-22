@@ -313,7 +313,10 @@ extension CaptureSessionManager: AVCapturePhotoCaptureDelegate {
             
             switch image.imageOrientation {
             case .right:
-                angle = CGFloat.pi / 2
+            // TODO 注意此处添加方向旋转支持：right横屏 edit by wanghao
+            // angle = CGFloat.pi / 2
+                angle = 0
+                image = UIImage(cgImage: image.cgImage!) // 消除orientation
             case .up:
                 angle = CGFloat.pi
             default:
